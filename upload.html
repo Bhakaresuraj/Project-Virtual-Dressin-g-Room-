@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Your Photo - VirtualFit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="upload.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>VirtualFit</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="index.html#benefits">Why Use Us</a></li>
+                <li><a href="index.html#demo">How It Works</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="upload-header">
+            <h1>Upload Your Photo</h1>
+            <p>Try on the selected clothing with your own photo</p>
+        </section>
+
+        <section class="upload-container">
+            <div class="upload-left">
+                <div class="selected-item">
+                    <h3>Selected Item</h3>
+                    <div class="selected-item-preview">
+                        <img id="selected-clothing" src="https://placehold.co/300x400" alt="Selected Clothing">
+                        <div class="item-details">
+                            <h4 id="selected-item-title">Item Name</h4>
+                            <p id="selected-item-category">Category</p>
+                            <p id="selected-item-size">Selected Size: <span>L</span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="guidelines">
+                    <h3>Photo Guidelines</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Good lighting conditions</li>
+                        <li><i class="fas fa-check"></i> Front-facing, standing position</li>
+                        <li><i class="fas fa-check"></i> Plain or simple background</li>
+                        <li><i class="fas fa-times"></i> No filters or heavy editing</li>
+                        <li><i class="fas fa-times"></i> No accessories covering body</li>
+                    </ul>
+                    <div class="samples">
+                        <div class="sample">
+                            <img src="https://placehold.co/150x200" alt="Good Photo Example">
+                            <span class="good">Good Example</span>
+                        </div>
+                        <div class="sample">
+                            <img src="https://placehold.co/150x200" alt="Bad Photo Example">
+                            <span class="bad">Not Ideal</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="upload-right">
+                <div class="upload-area" id="upload-area">
+                    <div class="upload-instructions" id="upload-instructions">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <h3>Drag & Drop Your Photo Here</h3>
+                        <p>or</p>
+                        <button id="browse-btn" class="cta-primary">Browse Files</button>
+                        <input type="file" id="file-input" accept="image/*" hidden>
+                        <p class="file-types">Supports: JPG, PNG (Max: 10MB)</p>
+                    </div>
+                    <div class="preview-container" id="preview-container" style="display: none;">
+                        <img id="preview-image" src="" alt="Preview">
+                        <div class="preview-controls">
+                            <button id="try-on-btn" class="cta-primary">Try It On</button>
+                            <button id="change-photo-btn" class="cta-secondary">Change Photo</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="privacy-note">
+                    <i class="fas fa-shield-alt"></i>
+                    <p><strong>Privacy Notice:</strong> Your photo is not stored on our servers or shared with third parties. It is only processed temporarily for the virtual try-on and then automatically deleted.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VirtualFit</h4>
+                <p>Try before you buy with AI technology</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#" id="about-link">About Us</a></li>
+                    <li><a href="#" id="contact-link">Contact</a></li>
+                    <li><a href="#" id="privacy-link">Privacy Policy</a></li>
+                    <li><a href="#" id="terms-link">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 VirtualFit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="upload.js"></script>
+</body>
+</html> 

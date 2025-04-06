@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clothing Catalog - VirtualFit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="catalog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>VirtualFit</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#benefits">Why Use Us</a></li>
+                <li><a href="index.html#demo">How It Works</a></li>
+                <li><a href="index.html#footer">About</a></li>
+            </ul>
+        </nav>
+        <div class="header-cta">
+            <button class="cta-primary active" id="header-catalog-btn"><i class="fas fa-tshirt"></i> Catalog</button>
+        </div>
+    </header>
+
+    <main>
+        <section class="catalog-header">
+            <h1>Clothing Catalog</h1>
+            <p>Browse our selection of virtual try-on ready clothing</p>
+        </section>
+
+        <section class="filters-section">
+            <div class="filters-container">
+                <div class="filter-group">
+                    <button class="filter-toggle">Gender <i class="fas fa-chevron-down"></i></button>
+                    <div class="filter-options" style="display: none;">
+                        <label class="filter-option">
+                            <input type="checkbox" name="gender" value="men"> Men
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="gender" value="women"> Women
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="gender" value="unisex"> Unisex
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <button class="filter-toggle">Occasion <i class="fas fa-chevron-down"></i></button>
+                    <div class="filter-options" style="display: none;">
+                        <label class="filter-option">
+                            <input type="checkbox" name="occasion" value="formal"> Formal
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="occasion" value="casual"> Casual
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="occasion" value="ethnic"> Ethnic
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="occasion" value="sports"> Sports
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <button class="filter-toggle">Type <i class="fas fa-chevron-down"></i></button>
+                    <div class="filter-options" style="display: none;">
+                        <label class="filter-option">
+                            <input type="checkbox" name="type" value="shirt"> Shirt
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="type" value="dress"> Dress
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="type" value="pants"> Pants
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="type" value="jacket"> Jacket
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="type" value="skirt"> Skirt
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <button class="filter-toggle">Color <i class="fas fa-chevron-down"></i></button>
+                    <div class="filter-options" style="display: none;">
+                        <label class="filter-option">
+                            <input type="checkbox" name="color" value="black"> Black
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="color" value="white"> White
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="color" value="red"> Red
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="color" value="blue"> Blue
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="color" value="green"> Green
+                        </label>
+                        <label class="filter-option">
+                            <input type="checkbox" name="color" value="yellow"> Yellow
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <button class="filter-toggle">Size <i class="fas fa-chevron-down"></i></button>
+                    <div class="filter-options" style="display: none;">
+                        <label class="filter-option size-option">
+                            <input type="checkbox" name="size" value="xs"> XS
+                        </label>
+                        <label class="filter-option size-option">
+                            <input type="checkbox" name="size" value="s"> S
+                        </label>
+                        <label class="filter-option size-option">
+                            <input type="checkbox" name="size" value="m"> M
+                        </label>
+                        <label class="filter-option size-option">
+                            <input type="checkbox" name="size" value="l"> L
+                        </label>
+                        <label class="filter-option size-option">
+                            <input type="checkbox" name="size" value="xl"> XL
+                        </label>
+                        <label class="filter-option size-option">
+                            <input type="checkbox" name="size" value="xxl"> XXL
+                        </label>
+                    </div>
+                </div>
+
+                <div class="filter-actions">
+                    <button id="apply-filters" class="cta-primary">Apply Filters</button>
+                    <button id="clear-filters" class="cta-secondary">Clear All</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-section">
+            <h2>Available Clothing <span id="result-count">(10 items)</span></h2>
+            
+            <div class="products-grid" id="products-container">
+                <!-- Product cards will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VirtualFit</h4>
+                <p>Try before you buy with AI technology</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#" id="about-link">About Us</a></li>
+                    <li><a href="#" id="contact-link">Contact</a></li>
+                    <li><a href="#" id="privacy-link">Privacy Policy</a></li>
+                    <li><a href="#" id="terms-link">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 VirtualFit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Product Preview Modal -->
+    <div class="preview-modal" id="preview-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="modal-body">
+                <div class="product-preview">
+                    <img id="modal-product-image" src="" alt="Product Preview">
+                </div>
+                <div class="product-details">
+                    <h2 id="modal-product-title"></h2>
+                    <p id="modal-product-description"></p>
+                    <div class="product-meta">
+                        <div class="product-price" id="modal-product-price"></div>
+                        <div class="product-rating" id="modal-product-rating"></div>
+                    </div>
+                    <div class="product-sizes" id="modal-product-sizes">
+                        <span class="size-label">Sizes:</span>
+                        <div class="size-options">
+                            <button class="size-btn">XS</button>
+                            <button class="size-btn">S</button>
+                            <button class="size-btn">M</button>
+                            <button class="size-btn active">L</button>
+                            <button class="size-btn">XL</button>
+                        </div>
+                    </div>
+                    <div class="product-actions">
+                        <button class="try-on-btn cta-primary">Try on your image</button>
+                        <button class="wishlist-btn"><i class="far fa-heart"></i> Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="catalog.js"></script>
+</body>
+</html> 
