@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Try-On Result</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .result-image {
+            width: 100%;
+            max-height: 600px;
+            object-fit: contain;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        .product-info {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: center;
+        }
+        .product-details {
+            flex: 1;
+        }
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background-color: #4361ee;
+            color: white;
+        }
+        .btn-secondary {
+            background-color: #e0e0e0;
+            color: #333;
+        }
+        .loading {
+            text-align: center;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Your Virtual Try-On Result</h1>
+        
+        <div id="loading" class="loading">
+            <p>Loading your result...</p>
+        </div>
+        
+        <div id="result-content" style="display: none;">
+            <img id="result-image" class="result-image" src="" alt="Try-on result">
+            
+            <div class="product-info">
+                <div class="product-details">
+                    <h2 id="product-title"></h2>
+                    <p id="product-category"></p>
+                    <p id="product-price"></p>
+                    <p id="selected-size"></p>
+                </div>
+            </div>
+            
+            <div class="actions">
+                <button id="save-btn" class="btn btn-primary">Save to My Account</button>
+                <button id="share-btn" class="btn btn-secondary">Share</button>
+                <button id="back-btn" class="btn btn-secondary">Try Another</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the result ID from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const resultId = urlParams.get('resultId');
+            const productId = urlParams.get('productId');
+            
+            if (!resultId) {
+                document.getElementById('loading').innerHTML = '<p>No result found. Please try again.</p>';
+                return;
+            }
+            
+            // Simulate a short loading time
+            setTimeout(() => {
+                // Hide loading, show content
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('result-content').style.display = 'block';
+                
+                // Set the image source to the result image
+                document.getElementById('result-image').src = `/uploads/processed/${resultId}`;
+                
+                // Fetch product details if product ID is available
+                if (productId) {
+                    fetch(`/api/products/${productId}`)
+                        .then(response => response.json())
+                        .then(product => {
+                            document.getElementById('product-title').textContent = product.title;
+                            document.getElementById('product-category').textContent = product.category;
+                            document.getElementById('product-price').textContent = product.price;
+                            
+                            const size = urlParams.get('size') || 'M';
+                            document.getElementById('selected-size').textContent = `Size: ${size}`;
+                        })
+                        .catch(error => {
+                            console.error('Error fetching product details:', error);
+                        });
+                }
+                
+                // Set up button actions
+                document.getElementById('save-btn').addEventListener('click', function() {
+                    // Demo user ID
+                    const userId = 1;
+                    
+                    fetch('/api/tryon/save', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            userId: userId,
+                            productId: productId,
+                            resultId: resultId
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert('Result saved to your account!');
+                        } else {
+                            alert('Error saving result: ' + data.message);
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error saving result:', error);
+                        alert('Error saving result. Please try again.');
+                    });
+                });
+                
+                document.getElementById('back-btn').addEventListener('click', function() {
+                    window.location.href = '/';
+                });
+                
+                document.getElementById('share-btn').addEventListener('click', function() {
+                    alert('Sharing functionality would be implemented here in a real application.');
+                });
+            }, 1000);
+        });
+    </script>
+</body>
+</html> 

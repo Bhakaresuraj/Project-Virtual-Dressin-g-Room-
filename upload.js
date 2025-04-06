@@ -139,11 +139,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Try it on button click
     tryOnBtn.addEventListener('click', function() {
-        // In a real app, this would process the image and show the result
-        alert('In a real application, this would process your photo with the selected clothing using AI and show you the result!');
+        // Show loading message while "processing"
+        alert('Processing your image with AI... (This would take a few seconds in a real application)');
         
-        // For demo purposes, redirect to a simulated result page
-        // window.location.href = `result.html?id=${productId}&size=${productSize}`;
+        // Redirect to the result page with product info
+        setTimeout(() => {
+            window.location.href = `result.html?id=${productId}&size=${productSize}`;
+        }, 1000);
     });
     
     // Footer link functionality (copied from main script)

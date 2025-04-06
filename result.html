@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Virtual Try-On Result - VirtualFit</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="result.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>VirtualFit</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="catalog.html">Catalog</a></li>
+                <li><a href="index.html#benefits">Why Use Us</a></li>
+                <li><a href="index.html#demo">How It Works</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="result-header">
+            <h1>Your Virtual Try-On</h1>
+            <p>Here's how the selected item looks on you</p>
+            <div class="processing-info">
+                <span class="ai-badge"><i class="fas fa-robot"></i> AI-Powered</span>
+                <div class="ai-tooltip">
+                    <i class="fas fa-info-circle"></i>
+                    <div class="tooltip-content">
+                        <p>This result uses advanced AI technologies:</p>
+                        <ul>
+                            <li><strong>Image Segmentation:</strong> Isolates your figure from the background</li>
+                            <li><strong>Pose Estimation:</strong> Aligns clothing based on your body posture</li>
+                            <li><strong>GANs:</strong> Creates realistic texture, folds, and lighting</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="result-container">
+            <div class="result-viewer">
+                <div class="viewer-controls">
+                    <button id="rotate-left-btn" class="control-btn"><i class="fas fa-undo"></i></button>
+                    <button id="zoom-in-btn" class="control-btn"><i class="fas fa-search-plus"></i></button>
+                    <button id="zoom-out-btn" class="control-btn"><i class="fas fa-search-minus"></i></button>
+                    <button id="rotate-right-btn" class="control-btn"><i class="fas fa-redo"></i></button>
+                    <button id="reset-view-btn" class="control-btn"><i class="fas fa-sync-alt"></i></button>
+                </div>
+                <div class="result-display">
+                    <div id="result-image-container">
+                        <img id="result-image" src="https://placehold.co/600x800" alt="Virtual Try-On Result">
+                    </div>
+                </div>
+                <div class="compare-toggle">
+                    <label class="switch">
+                        <input type="checkbox" id="compare-toggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <span>Compare with original</span>
+                </div>
+            </div>
+
+            <div class="result-options">
+                <div class="item-details">
+                    <h2 id="item-title">Item Name</h2>
+                    <p id="item-category">Category</p>
+                    <p id="item-price">$XX.XX</p>
+                    <div class="selected-size">
+                        <span>Selected Size: </span>
+                        <span id="size-display">L</span>
+                        <button id="change-size-btn" class="small-btn">Change</button>
+                    </div>
+                </div>
+
+                <div class="adjustment-options">
+                    <h3>Adjustments</h3>
+                    
+                    <div class="adjustment-control">
+                        <label for="fit-slider">Fit:</label>
+                        <div class="slider-container">
+                            <span>Loose</span>
+                            <input type="range" id="fit-slider" min="1" max="5" value="3">
+                            <span>Tight</span>
+                        </div>
+                    </div>
+
+                    <div class="color-options">
+                        <label>Color Options:</label>
+                        <div class="color-swatches" id="color-options">
+                            <!-- Color options will be dynamically added here -->
+                        </div>
+                    </div>
+
+                    <div class="adjustment-control" id="length-control">
+                        <label for="length-slider">Length:</label>
+                        <div class="slider-container">
+                            <span>Shorter</span>
+                            <input type="range" id="length-slider" min="1" max="5" value="3">
+                            <span>Longer</span>
+                        </div>
+                    </div>
+
+                    <div class="adjustment-control" id="sleeve-control">
+                        <label for="sleeve-slider">Sleeve Length:</label>
+                        <div class="slider-container">
+                            <span>Short</span>
+                            <input type="range" id="sleeve-slider" min="1" max="5" value="3">
+                            <span>Long</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="add-to-cart-btn" class="cta-primary"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+                    <button id="save-image-btn" class="cta-secondary"><i class="fas fa-download"></i> Save Image</button>
+                    <button id="try-another-btn" class="cta-secondary"><i class="fas fa-redo"></i> Try Another Item</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Size Selection Modal -->
+        <div id="size-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h3>Change Size</h3>
+                <div class="size-options">
+                    <button class="size-btn" data-size="XS">XS</button>
+                    <button class="size-btn" data-size="S">S</button>
+                    <button class="size-btn" data-size="M">M</button>
+                    <button class="size-btn active" data-size="L">L</button>
+                    <button class="size-btn" data-size="XL">XL</button>
+                    <button class="size-btn" data-size="XXL">XXL</button>
+                </div>
+                <div class="size-chart-link">
+                    <a href="#" id="size-chart-link">View Size Chart</a>
+                </div>
+                <button id="apply-size-btn" class="cta-primary">Apply</button>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>VirtualFit</h4>
+                <p>Try before you buy with AI technology</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#" id="about-link">About Us</a></li>
+                    <li><a href="#" id="contact-link">Contact</a></li>
+                    <li><a href="#" id="privacy-link">Privacy Policy</a></li>
+                    <li><a href="#" id="terms-link">Terms of Service</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-icons">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 VirtualFit. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="result.js"></script>
+</body>
+</html> 
