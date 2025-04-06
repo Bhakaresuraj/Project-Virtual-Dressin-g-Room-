@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             id: 5,
             title: "Floral Summer Dress",
             category: "Women • Casual • Dress",
-            image: "images/read vinttage derss.jpeg"
+            image: "images/Summer_dress.webp"
         },
         {
             id: 6,
@@ -66,19 +66,19 @@ document.addEventListener('DOMContentLoaded', function() {
             id: 8,
             title: "Blue Sport Joggers",
             category: "Unisex • Sports • Pants",
-            image: "images/shirt.jpeg"
+            image: "images/blue_jogger.jpeg"
         },
         {
             id: 9,
-            title: "T-shirt",
-            category: "Unisex • Sports • Pants",
-            image: "images/shirt.jpeg"
+            title: "Casual T-shirt",
+            category: "Unisex • Casual • Shirt",
+            image: "images/T_shirt.webp"
         },
         {
             id: 10,
-            title: "shirt",
-            category: "Unisex • Sports • Pants",
-            image: "images/shirt.jpeg"
+            title: "Stylish Casual Shirt",
+            category: "Men • Casual • Shirt",
+            image: "images/Shirt.webp"
         }
     ];
     
