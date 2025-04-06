@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Classic White Shirt",
             category: "Men • Formal • Shirt",
             price: "$49.99",
-            image: "https://placehold.co/400x500",
+            image: "images/minimalist white shirt.jpeg",
             rating: 4.5,
             reviewCount: 120,
             description: "A timeless classic white shirt perfect for formal occasions. Made with premium cotton for ultimate comfort and durability.",
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Blue Denim Jeans",
             category: "Men • Casual • Pants",
             price: "$59.99",
-            image: "https://placehold.co/400x500",
+            image: "images/modern blue jense.jpeg",
             rating: 4.2,
             reviewCount: 95,
             description: "Comfortable denim jeans with a modern fit. Perfect for everyday casual wear.",
@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Red Cocktail Dress",
             category: "Women • Formal • Dress",
             price: "$79.99",
-            image: "https://placehold.co/400x500",
+            image: "images/read vinttage derss.jpeg",
             rating: 4.8,
             reviewCount: 156,
             description: "Elegant red cocktail dress perfect for formal events and evening parties.",
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Black Blazer",
             category: "Men • Formal • Jacket",
             price: "$89.99",
-            image: "https://placehold.co/400x500",
+            image: "images/classic black suit.jpeg",
             rating: 4.6,
             reviewCount: 78,
             description: "Sharp black blazer for a professional look. Made with high-quality materials for a comfortable fit.",
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Floral Summer Dress",
             category: "Women • Casual • Dress",
             price: "$54.99",
-            image: "https://placehold.co/400x500",
+            image: "images/read vinttage derss.jpeg",
             rating: 4.3,
             reviewCount: 112,
             description: "Light and breezy floral dress perfect for summer outings and casual events.",
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', function() {
             title: "Green T-Shirt",
             category: "Unisex • Casual • Shirt",
             price: "$24.99",
-            image: "https://placehold.co/400x500",
+            image: "images/green athelatic shirt.jpeg",
             rating: 4.1,
             reviewCount: 87,
             description: "Comfortable cotton t-shirt in a vibrant green shade. Perfect for casual everyday wear.",
@@ -93,25 +93,55 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         {
             id: 7,
-            title: "Blue Formal Skirt",
-            category: "Women • Formal • Skirt",
+            title: "Blue Formal Blezar",
+            category: "Women • Formal • Jacket",
             price: "$49.99",
-            image: "https://placehold.co/400x500",
+            image: "images/classic blue blazer.jpeg",
             rating: 4.4,
             reviewCount: 65,
-            description: "Elegant blue skirt for formal settings and professional environments.",
+            description: "Elegant blue blazer for formal settings and professional environments.",
             gender: "women",
-            type: "skirt",
+            type: "jacket",
             occasion: "formal",
             colors: ["blue"],
             sizes: ["XS", "S", "M", "L"]
         },
         {
             id: 8,
-            title: "Black Sport Joggers",
+            title: "Blue Sport Joggers",
             category: "Unisex • Sports • Pants",
             price: "$39.99",
-            image: "https://placehold.co/400x500",
+            image: "images/shirt.jpeg",
+            rating: 4.7,
+            reviewCount: 134,
+            description: "Comfortable joggers perfect for workouts or casual athleisure style.",
+            gender: "unisex",
+            type: "pants",
+            occasion: "sports",
+            colors: ["blue"],
+            sizes: ["XS", "S", "M", "L", "XL"]
+        },
+        {
+            id: 9,
+            title: "T-shirt",
+            category: "Unisex • Sports • Pants",
+            price: "$1.1",
+            image: "images/shirt.jpeg",
+            rating: 4.7,
+            reviewCount: 134,
+            description: "Comfortable joggers perfect for workouts or casual athleisure style.",
+            gender: "unisex",
+            type: "pants",
+            occasion: "sports",
+            colors: ["black"],
+            sizes: ["XS", "S", "M", "L", "XL"]
+        },
+        {
+            id: 10,
+            title: "shirt",
+            category: "Unisex • Sports • Pants",
+            price: "$1.1",
+            image: "images/shirt.jpeg",
             rating: 4.7,
             reviewCount: 134,
             description: "Comfortable joggers perfect for workouts or casual athleisure style.",
@@ -121,17 +151,9 @@ document.addEventListener('DOMContentLoaded', function() {
             colors: ["black"],
             sizes: ["XS", "S", "M", "L", "XL"]
         }
-    ];
 
-    // More products to fill the grid (duplicated with different IDs)
+    ];
     let allProducts = [...products];
-    for (let i = 9; i <= 10; i++) {
-        const original = products[(i - 9) % products.length];
-        allProducts.push({
-            ...original,
-            id: i
-        });
-    }
 
     // DOM Elements
     const productsContainer = document.getElementById('products-container');

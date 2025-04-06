@@ -24,27 +24,62 @@ document.addEventListener('DOMContentLoaded', function() {
             id: 1,
             title: "Classic White Shirt",
             category: "Men • Formal • Shirt",
-            image: "https://placehold.co/400x500"
+            image: "images/minimalist white shirt.jpeg"
         },
         {
             id: 2,
             title: "Blue Denim Jeans",
             category: "Men • Casual • Pants",
-            image: "https://placehold.co/400x500"
+            image: "images/modern blue jense.jpeg"
         },
         {
             id: 3,
             title: "Red Cocktail Dress",
             category: "Women • Formal • Dress",
-            image: "https://placehold.co/400x500"
+            image: "images/read vinttage derss.jpeg"
         },
         {
             id: 4,
             title: "Black Blazer",
             category: "Men • Formal • Jacket",
-            image: "https://placehold.co/400x500"
+            image: "images/classic black suit.jpeg"
+        },
+        {
+            id: 5,
+            title: "Floral Summer Dress",
+            category: "Women • Casual • Dress",
+            image: "images/read vinttage derss.jpeg"
+        },
+        {
+            id: 6,
+            title: "Green T-Shirt",
+            category: "Unisex • Casual • Shirt",
+            image: "images/green athelatic shirt.jpeg"
+        },
+        {
+            id: 7,
+            title: "Blue Formal Blezar",
+            category: "Women • Formal • Jacket",
+            image: "images/classic blue blazer.jpeg"
+        },
+        {
+            id: 8,
+            title: "Blue Sport Joggers",
+            category: "Unisex • Sports • Pants",
+            image: "images/shirt.jpeg"
+        },
+        {
+            id: 9,
+            title: "T-shirt",
+            category: "Unisex • Sports • Pants",
+            image: "images/shirt.jpeg"
+        },
+        {
+            id: 10,
+            title: "shirt",
+            category: "Unisex • Sports • Pants",
+            image: "images/shirt.jpeg"
         }
-        // More products would be here in a real app
     ];
     
     // Set selected item information if product ID is provided
@@ -56,6 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
             selectedItemCategory.textContent = product.category;
             selectedItemSize.innerHTML = `Selected Size: <span>${productSize}</span>`;
         }
+    } else {
+        // If no product is selected, redirect back to catalog
+        window.location.href = 'catalog.html';
     }
     
     // Click event for browse button
