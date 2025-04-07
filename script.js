@@ -90,8 +90,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const demoImage = document.getElementById('demo-gif');
     if (demoImage) {
         // In a real implementation, you would replace these with actual image URLs
-        const staticImage = 'https://placehold.co/800x450';
-        const gifImage = 'https://placehold.co/800x450'; // This would be a GIF in reality
+        const staticImage = 'front_image.jpg';
+        const gifImage = 'front_image.jpg'; // This would be a GIF in reality
         
         demoImage.addEventListener('mouseenter', function() {
             this.src = gifImage;
