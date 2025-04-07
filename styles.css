@@ -164,7 +164,7 @@ nav ul li a.active::after {
 .hero-image img {
     max-width: 100%;
     border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(138, 108, 108, 0.1);
 }
 
 /* Benefits Section */
